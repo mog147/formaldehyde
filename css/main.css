@@ -131,7 +131,7 @@ h1, h2, h3 { font-weight: 400; }
 /* ── Specimen Grid ── */
 .specimen-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3px;
   padding-bottom: 6rem;
 }
