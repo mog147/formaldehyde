@@ -14,57 +14,38 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <a href="../index.html" class="site-logo">F&thinsp;O&thinsp;R&thinsp;M&thinsp;A&thinsp;L&thinsp;D&thinsp;E&thinsp;H&thinsp;Y&thinsp;D&thinsp;E</a>
-    <nav class="site-nav">
-      <a href="../index.html">Archive</a>
-      <a href="../about.html">About</a>
-    </nav>
-  </header>
+  <site-header root-path=".."></site-header>
 
   <main>
     <div class="page case-page">
 
       <a href="../index.html" class="case-back reveal">Back to Archive</a>
 
-      <!-- Specimen Label -->
-      <div class="specimen-label reveal">
-        <div class="label-left">
-          <p class="label-specimen-id">Specimen No.003 · Formaldehyde Archive</p>
-          <h1 class="label-title">The brighter the light the darker the shadow.</h1>
-        </div>
-        <div class="label-right">
-          <div class="label-meta-row"><span>Medium</span>pencil / kent paper</div>
-          <div class="label-meta-row"><span>Year</span>2025</div>
-          <div class="label-meta-row"><span>Collector</span>Momoko Tezuka</div>
-        </div>
-      </div>
+      <specimen-label 
+        specimen-id="003" 
+        title="The brighter the light the darker the shadow." 
+        medium="pencil / kent paper" 
+        year="2025"
+      ></specimen-label>
 
-      <!-- Slider -->
-      <div class="case-slider reveal">
-        <div class="slider-track">
-          <img src="../img/gallery/pencil_2_1.PNG" alt="No.003 — The brighter the light the darker the shadow.">
-          <img src="../img/gallery/pencil_2_2.JPG" alt="No.003 — The brighter the light the darker the shadow. 制作過程">
-        </div>
-        <div class="slider-ui">
-          <button class="slider-btn prev" aria-label="前へ">←</button>
-          <span class="slider-count">1 / 2</span>
-          <button class="slider-btn next" aria-label="次へ">→</button>
-        </div>
-      </div>
+      <case-slider 
+        img1="pencil_2_1.PNG" 
+        img2="pencil_2_2.JPG" 
+        title="No.003 — The brighter the light the darker the shadow."
+      ></case-slider>
 
       <!-- Body -->
       <article class="case-body">
 
         <h2>制作背景</h2>
-        <p>ケント紙の滑らかな表面に、鉛筆の粒子を一層ずつ重ねていく。消しては描き、描いては消す——その繰り返しの中で、最初のイメージとは少し違う場所に絵が着地します。</p>
-        <p>この作品では、タイトルに込めた感覚——「The brighter the light the darker the shadow.」——を画面の中でどう表現するかを模索しました。言葉にできない感情を、線と色に託しています。</p>
+        <p>強い光がある場所には、必ず逃れられない深い闇が生じます。コントラストそのものを主役にし、光の恩恵とその代償としての影を描き出しました。</p>
+        <p>眩しすぎる真実の裏側に隠された、心地よい孤独と深い静寂を標本化した作品です。</p>
 
         <h2>プロセス</h2>
-        <p>Hi-uni の B〜4B を中心に、明暗のコントラストを意識しながら調子を重ねました。練り消しでハイライトを拾い、光の方向を整えていきます。</p>
+        <p>光を表現するために「描かない」部分を計算し、影の部分には B〜4B を幾層にも重ねて深淵を作りました。消しゴムを彫刻刀のように使い、光を彫り込んでいます。</p>
 
         <h2>振り返り</h2>
-        <p>完成後に改めて眺めると、制作中には気づかなかった表情が浮かび上がってきます。意図と偶然のあいだに生まれるものを、次の作品へのヒントとして受け取っています。</p>
+        <p>影を描けば描くほど、逆説的に光が暴力的なまでの存在感を持ち始めました。二つの対立する要素が互いを必要としていることが、紙の上で証明された感覚です。</p>
 
       </article>
 
@@ -83,14 +64,9 @@
     </div>
   </main>
 
-  <footer class="site-footer">
-    <span class="footer-logo">Formaldehyde</span>
-    <span class="footer-note">
-      © Momoko Tezuka &nbsp;·&nbsp;
-      <a href="https://mog147.github.io/mysite/" target="_blank" rel="noopener">396 FOLIO →</a>
-    </span>
-  </footer>
+  <site-footer></site-footer>
 
-  <script src="../js/main.js"></script>
+
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>

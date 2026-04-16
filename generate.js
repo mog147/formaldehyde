@@ -27,17 +27,12 @@ function esc(str) {
 // ── Generate index.html ──────────────────
 
 function gridItem(s) {
-  const img = s.img1
-    ? `<img src="img/gallery/${esc(s.img1)}" alt="No.${esc(s.id)}" loading="lazy">`
-    : '';
-  return `
-    <a href="case/${s.id}.html" class="grid-item reveal">
-      ${img}
-      <div class="grid-overlay">
-        <span class="grid-num">${esc(s.id)}</span>
-        <p class="grid-title">${esc(s.title)}</p>
-      </div>
-    </a>`;
+  return `    <specimen-card 
+      specimen-id="${esc(s.id)}" 
+      title="${esc(s.title)}" 
+      img="${esc(s.img1)}"
+      class="reveal"
+    ></specimen-card>`;
 }
 
 function buildIndex() {
@@ -61,13 +56,7 @@ function buildIndex() {
 </head>
 <body>
 
-  <header class="site-header">
-    <a href="index.html" class="site-logo">F&thinsp;O&thinsp;R&thinsp;M&thinsp;A&thinsp;L&thinsp;D&thinsp;E&thinsp;H&thinsp;Y&thinsp;D&thinsp;E</a>
-    <nav class="site-nav">
-      <a href="index.html">Archive</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
+  <site-header></site-header>
 
   <main>
     <div class="page">
@@ -83,15 +72,10 @@ ${items}
     </section>
   </main>
 
-  <footer class="site-footer">
-    <span class="footer-logo">Formaldehyde</span>
-    <span class="footer-note">
-      © Momoko Tezuka &nbsp;·&nbsp;
-      <a href="https://mog147.github.io/mysite/" target="_blank" rel="noopener">396 FOLIO →</a>
-    </span>
-  </footer>
+  <site-footer></site-footer>
 
-  <script src="js/main.js"></script>
+
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
 `;
@@ -141,44 +125,25 @@ function buildCase(s, prev, next) {
 </head>
 <body>
 
-  <header class="site-header">
-    <a href="../index.html" class="site-logo">F&thinsp;O&thinsp;R&thinsp;M&thinsp;A&thinsp;L&thinsp;D&thinsp;E&thinsp;H&thinsp;Y&thinsp;D&thinsp;E</a>
-    <nav class="site-nav">
-      <a href="../index.html">Archive</a>
-      <a href="../about.html">About</a>
-    </nav>
-  </header>
+  <site-header root-path=".."></site-header>
 
   <main>
     <div class="page case-page">
 
       <a href="../index.html" class="case-back reveal">Back to Archive</a>
 
-      <!-- Specimen Label -->
-      <div class="specimen-label reveal">
-        <div class="label-left">
-          <p class="label-specimen-id">Specimen No.${esc(s.id)} · Formaldehyde Archive</p>
-          <h1 class="label-title">${esc(s.title)}</h1>
-        </div>
-        <div class="label-right">
-          <div class="label-meta-row"><span>Medium</span>${esc(s.medium)}</div>
-          <div class="label-meta-row"><span>Year</span>${esc(s.year)}</div>
-          <div class="label-meta-row"><span>Collector</span>Momoko Tezuka</div>
-        </div>
-      </div>
+      <specimen-label 
+        specimen-id="${esc(s.id)}" 
+        title="${esc(s.title)}" 
+        medium="${esc(s.medium)}" 
+        year="${esc(s.year)}"
+      ></specimen-label>
 
-      <!-- Slider -->
-      <div class="case-slider reveal">
-        <div class="slider-track">
-          <img src="../img/gallery/${esc(s.img1)}" alt="No.${esc(s.id)} — ${esc(s.title)}">
-          <img src="../img/gallery/${esc(s.img2)}" alt="No.${esc(s.id)} — ${esc(s.title)} 制作過程">
-        </div>
-        <div class="slider-ui">
-          <button class="slider-btn prev" aria-label="前へ">←</button>
-          <span class="slider-count">1 / 2</span>
-          <button class="slider-btn next" aria-label="次へ">→</button>
-        </div>
-      </div>
+      <case-slider 
+        img1="${esc(s.img1)}" 
+        img2="${esc(s.img2)}" 
+        title="No.${esc(s.id)} — ${esc(s.title)}"
+      ></case-slider>
 
       <!-- Body -->
       <article class="case-body">
@@ -195,15 +160,10 @@ ${bodySections}
     </div>
   </main>
 
-  <footer class="site-footer">
-    <span class="footer-logo">Formaldehyde</span>
-    <span class="footer-note">
-      © Momoko Tezuka &nbsp;·&nbsp;
-      <a href="https://mog147.github.io/mysite/" target="_blank" rel="noopener">396 FOLIO →</a>
-    </span>
-  </footer>
+  <site-footer></site-footer>
 
-  <script src="../js/main.js"></script>
+
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>
 `;
