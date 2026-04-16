@@ -88,15 +88,15 @@ h1, h2, h3 { font-weight: 400; }
 
 /* ── Page Wrapper ── */
 .page {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 /* ── Index: Hero ── */
 .index-hero {
-  padding-top: 14rem;
-  padding-bottom: 5rem;
+  padding-top: 16rem;
+  padding-bottom: 6rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -132,8 +132,10 @@ h1, h2, h3 { font-weight: 400; }
 .specimen-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3px;
-  padding-bottom: 6rem;
+  gap: 16px;
+  padding: 4rem 3rem 10rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .grid-item {
@@ -189,7 +191,7 @@ h1, h2, h3 { font-weight: 400; }
 /* ── Site Footer ── */
 .site-footer {
   border-top: 1px solid var(--line);
-  padding: 3rem 2.5rem;
+  padding: 4rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -219,8 +221,8 @@ h1, h2, h3 { font-weight: 400; }
 
 /* ── Case Page ── */
 .case-page {
-  padding-top: 8rem;
-  padding-bottom: 6rem;
+  padding-top: 10rem;
+  padding-bottom: 8rem;
 }
 
 .case-back {
@@ -232,7 +234,7 @@ h1, h2, h3 { font-weight: 400; }
   letter-spacing: 0.2em;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
   transition: color 0.3s var(--ease);
 }
 
@@ -246,11 +248,11 @@ h1, h2, h3 { font-weight: 400; }
 /* Specimen Label */
 .specimen-label {
   border: 1px solid var(--line-mid);
-  padding: 1.5rem 2rem;
-  margin-bottom: 3rem;
+  padding: 2.5rem 3rem;
+  margin-bottom: 5rem;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 1rem;
+  gap: 2rem;
   background: var(--bg-card);
 }
 
@@ -299,7 +301,7 @@ h1, h2, h3 { font-weight: 400; }
 /* ── Case Slider ── */
 .case-slider {
   position: relative;
-  margin-bottom: 3.5rem;
+  margin-bottom: 5rem;
   overflow: hidden;
 }
 
@@ -357,18 +359,18 @@ h1, h2, h3 { font-weight: 400; }
   letter-spacing: 0.3em;
   color: var(--text-muted);
   text-transform: uppercase;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-top: 4.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--line);
 }
 
 .case-body p {
   font-family: var(--serif);
   font-size: 1rem;
-  line-height: 1.85;
+  line-height: 2;
   color: var(--text);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .case-figure {
@@ -394,8 +396,8 @@ h1, h2, h3 { font-weight: 400; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 4rem;
-  margin-top: 4rem;
+  padding-top: 5rem;
+  margin-top: 6rem;
   border-top: 1px solid var(--line);
 }
 
@@ -506,20 +508,21 @@ h1, h2, h3 { font-weight: 400; }
 
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .site-header { padding: 1.2rem 1.25rem; }
-  .site-nav { gap: 1.2rem; }
+  .site-header { padding: 1.2rem 1.5rem; }
+  .site-nav { gap: 1.5rem; }
 
-  .page { padding: 0 1.25rem; }
+  .page { padding: 0 1.5rem; }
 
   .index-hero {
-    padding-top: 7rem;
-    padding-bottom: 2.5rem;
+    padding-top: 8rem;
+    padding-bottom: 3.5rem;
   }
 
   /* Grid: 2 columns, always show overlay */
   .specimen-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
+    gap: 8px;
+    padding: 2.5rem 1.5rem 8rem;
   }
 
   .grid-overlay { opacity: 1; }
@@ -528,22 +531,26 @@ h1, h2, h3 { font-weight: 400; }
 
   /* Case page: slider full-bleed */
   .case-slider {
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    margin-bottom: 3.5rem;
   }
 
   .slider-track img { max-height: 60vw; }
 
   .specimen-label {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    margin-bottom: 3.5rem;
   }
 
   .label-right { align-items: flex-start; text-align: left; }
 
   .site-footer {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     text-align: center;
+    padding: 3rem 1.5rem;
   }
 }
