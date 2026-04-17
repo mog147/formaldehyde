@@ -14,6 +14,8 @@ const CASE_DIR  = path.join(ROOT, 'case');
 
 const specimens = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
 
+const BASE_URL = 'https://mog147.github.io/formaldehyde/';
+
 // ── Helpers ──────────────────────────────
 
 function esc(str) {
@@ -169,6 +171,38 @@ ${bodySections}
 `;
 }
 
+// ── Generate sitemap.xml ───────────────
+
+function buildSitemap() {
+  const lastmod = new Date().toISOString().split('T')[0];
+  const urls = [
+    '',
+    'about.html',
+    ...specimens.map(s => `case/${s.id}.html`)
+  ];
+
+  const xmlUrls = urls.map(u => `
+  <url>
+    <loc>${BASE_URL}${u}</loc>
+    <lastmod>${lastmod}</lastmod>
+  </url>`).join('');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${xmlUrls}
+</urlset>
+`;
+}
+
+// ── Generate robots.txt ────────────────
+
+function buildRobots() {
+  return `User-agent: *
+Allow: /
+Sitemap: ${BASE_URL}sitemap.xml
+`;
+}
+
 // ── Run ──────────────────────────────────
 
 // index.html
@@ -184,4 +218,11 @@ specimens.forEach((s, i) => {
   console.log(`✓ case/${s.id}.html`);
 });
 
-console.log(`\nDone — ${specimens.length} specimens generated.`);
+// SEO files
+fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), buildSitemap());
+console.log('✓ sitemap.xml');
+
+fs.writeFileSync(path.join(ROOT, 'robots.txt'), buildRobots());
+console.log('✓ robots.txt');
+
+console.log(`\nDone — ${specimens.length} specimens + SEO files generated.`);
